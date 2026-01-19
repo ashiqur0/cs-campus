@@ -1,3 +1,4 @@
+import AuthButtons from '../buttons/AuthButtons';
 import NavLink from '../NavLink/NavLink';
 import Logo from './Logo';
 
@@ -30,7 +31,7 @@ const Navbar = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-                <a className="btn">Button</a>
+                <AuthButtons />
             </div>
         </div>
     );
