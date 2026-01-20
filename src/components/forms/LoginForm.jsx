@@ -35,7 +35,7 @@ const LoginForm = () => {
                 <label className="label">Email</label>
                 <input
                     type="email"
-                    className="input"
+                    className="input w-full"
                     placeholder="Email"
                     name='email'
                     required
@@ -44,14 +44,14 @@ const LoginForm = () => {
                 <label className="label">Password</label>
                 <input
                     type="password"
-                    className="input"
+                    className="input w-full"
                     placeholder="Password"
                     name='password'
                     required
                 />
                 <div><a className="link link-hover">Forgot password?</a></div>
 
-                <button type='submit' className="btn btn-soft btn-primary border border-red-500 mt-4">Login</button>
+                <button type='submit' className="btn btn-soft btn-primary border border-primary">Login</button>
 
                 <Link href={`/signup?callbackUrl=${callbackUrl}`}>Do not have an account? <span className='text-blue-500 mt-2'>sign up</span></Link>
             </fieldset>

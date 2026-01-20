@@ -44,7 +44,7 @@ const RegisterForm = () => {
                 <label className="label">Full Name</label>
                 <input
                     type="text"
-                    className="input"
+                    className="input w-full"
                     placeholder="Your name"
                     name="name"
                     required
@@ -53,7 +53,7 @@ const RegisterForm = () => {
                 <label className="label">Email</label>
                 <input
                     type="email"
-                    className="input"
+                    className="input w-full"
                     placeholder="Email"
                     name='email'
                     required
@@ -62,13 +62,13 @@ const RegisterForm = () => {
                 <label className="label">Password</label>
                 <input
                     type="password"
-                    className="input"
+                    className="input w-full"
                     placeholder="Password"
                     name='password'
                     required
                 />
 
-                <button type="submit" className="btn btn-soft btn-primary border border-red-500 mt-4">Sign up</button>
+                <button type="submit" className="btn btn-soft btn-primary border border-primary mt-4">Sign up</button>
                 <Link href={'/login'}>Already have an account? <span className='text-blue-500 mt-2'>login</span></Link>
             </fieldset>
         </form>
