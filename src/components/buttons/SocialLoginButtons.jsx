@@ -18,7 +18,7 @@ const SocialLoginButtons = () => {
         <div className="w-full">
             {/* Google Login */}
             <button onClick={handleGoogleSignIn}
-                className="btn btn-secondary border border-red-500 w-full flex items-center gap-2">
+                className="btn btn-primary w-full flex items-center gap-2">
                 <FcGoogle size={24} />
                 <span>Login with Google</span>
             </button>
