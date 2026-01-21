@@ -1,5 +1,6 @@
 'use client';
 
+import { postQuiz } from '@/actions/server/quiz';
 import { useState, useMemo } from 'react';
 import { FaTrashCan } from "react-icons/fa6";
 import Swal from 'sweetalert2';
@@ -65,7 +66,7 @@ export default function AddQuiz() {
     }
 
     /* ---------------- Store Quiz To Database ---------------- */
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
 
         const payload = {
@@ -74,9 +75,12 @@ export default function AddQuiz() {
             questions,
         };
 
-        console.log('Quiz Payload:', payload);
-
-        new Swal('success', "Quiz added successfully!", 'success');    
+        const result = await postQuiz(payload);
+        if (result.insertedId) {
+            new Swal('success', "Quiz added successfully!", 'success');    
+        } else {
+            new Swal('error', "Failed to add quiz. Please try again.", 'error');
+        }
     
         // Reset form After Submission
         e.target.reset();

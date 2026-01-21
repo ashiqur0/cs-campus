@@ -6,6 +6,7 @@ const db_name = process.env.DB_NAME;
 // to use collection name without mistake
 export const collections = {
     USERS: 'users',
+    QUIZZES: 'quizzes',
 }
 
 // Create a MongoClient
