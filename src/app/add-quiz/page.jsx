@@ -53,7 +53,7 @@ export default function AddQuiz() {
         setQuestions([
             ...questions,
             {
-                question: 'q',
+                question: '',
                 options: ['', '', '', ''],
                 correctAnswer: '',
             },
@@ -68,15 +68,11 @@ export default function AddQuiz() {
     /* ---------------- Store Quiz To Database ---------------- */
     const handleSubmit = async (e) => {
         e.preventDefault();
-
-        const payload = {
-            course,
-            topic,
-            questions,
-        };
+        const payload = questions.map((q) => ({...q, course, topic}));
+        // console.log(payload);
 
         const result = await postQuiz(payload);
-        if (result.insertedId) {
+        if (result.insertedIds) {
             new Swal('success', "Quiz added successfully!", 'success');    
         } else {
             new Swal('error', "Failed to add quiz. Please try again.", 'error');
