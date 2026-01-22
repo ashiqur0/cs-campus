@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import SingleQuiz from './SingleQuiz';
-import { fireConfetti } from '@/utils/confetti';
+import { fireConfettiWithDuration } from '@/utils/confetti';
 
 const QuizPage = ({ quiz }) => {
     const [questions] = useState(quiz || []);
@@ -21,12 +21,11 @@ const QuizPage = ({ quiz }) => {
 
     const handleSubmit = () => {
         setSubmitted(true);
-        fireConfetti();
+        fireConfettiWithDuration();
     };
 
     // ✅ check if current question is answered
-    const isAnswered =
-        currentQuestion && answers[currentQuestion._id];
+    const isAnswered = currentQuestion && answers[currentQuestion._id];
 
     if (submitted) {
         return (
