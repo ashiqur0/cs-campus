@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import { GiTeacher } from "react-icons/gi";
 import { IoIosTime } from "react-icons/io";
 import { SiLevelsdotfyi } from "react-icons/si";
@@ -9,7 +10,7 @@ const CourseCard = ({ course }) => {
             className="border border-primary rounded-lg p-4 mb-10 hover:shadow-md shadow-white transition-shadow duration-300">
             <Image
                 src={course.img}
-                className="w-full h-50 object-cover mb-4 rounded"
+                className="w-full h-50 objeclogo-cs-campus.pngt-cover mb-4 rounded"
                 alt={course.title}
                 width={500}
                 height={500}
@@ -35,7 +36,12 @@ const CourseCard = ({ course }) => {
 
             <div className='flex justify-between mt-4'>
                 <button className='btn btn-soft btn-primary border border-primary p-4 w-4/9'>Enroll Now</button>
-                <button className='btn btn-soft btn-primary border border-primary p-4 w-4/9'>See Details</button>
+
+                <Link
+                    href={`/courses/${course.id}`}
+                    className='btn btn-soft btn-primary border border-primary p-4 w-4/9'
+                >See Details
+                </Link>
             </div>
         </div>
     );

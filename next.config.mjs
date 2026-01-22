@@ -6,9 +6,9 @@ const nextConfig = {
       {
         protocol: 'https',
         hostname: 'i.ibb.co.com',
-        port: '',
-        pathname: '/7dzwthjw/**',
-        search: '',
+        // port: '',
+        // pathname: '/7dzwthjw/**',
+        // search: '',
       },
     ],
   },
