@@ -1,11 +1,12 @@
 import Image from 'next/image';
 import { GiTeacher } from "react-icons/gi";
 import { IoIosTime } from "react-icons/io";
+import { SiLevelsdotfyi } from "react-icons/si";
 
 const CourseCard = ({ course }) => {
     return (
         <div key={course.id}
-            className="border border-gray-600 rounded-lg p-4 mb-10 hover:shadow-md shadow-white transition-shadow duration-300">
+            className="border border-primary rounded-lg p-4 mb-10 hover:shadow-md shadow-white transition-shadow duration-300">
             <Image
                 src={course.img}
                 className="w-full h-50 object-cover mb-4 rounded"
@@ -28,8 +29,13 @@ const CourseCard = ({ course }) => {
             </div>
 
             <div className="flex items-center gap-2">
-                <span>Level:</span>
+                <span><SiLevelsdotfyi /></span>
                 <span>{course.level}</span>
+            </div>
+
+            <div className='flex justify-between mt-4'>
+                <button className='btn btn-soft btn-primary border border-primary p-4 w-4/9'>Enroll Now</button>
+                <button className='btn btn-soft btn-primary border border-primary p-4 w-4/9'>See Details</button>
             </div>
         </div>
     );

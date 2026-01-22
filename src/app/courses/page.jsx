@@ -17,7 +17,7 @@ const course = [
         description: 'Master the concepts of OOP using Java.',
         instructor: 'Samiul Islam',
         duration: '4 months',
-        level: 'Beginner',
+        level: 'Intermediate',
     },
     {
         id: 3,
@@ -26,7 +26,7 @@ const course = [
         description: 'Enhance your problem-solving skills with C++.',
         instructor: 'Mushfique Anam',
         duration: '4 months',
-        level: 'Beginner',
+        level: 'Intermediate',
     },
     {
         id: 4,
@@ -35,7 +35,7 @@ const course = [
         description: 'Learn essential data structures using Java.',
         instructor: 'Ashiqur Rahman',
         duration: '4 months',
-        level: 'Beginner',
+        level: 'Advanced',
     },
     {
         id: 5,
@@ -44,7 +44,7 @@ const course = [
         description: 'Learn essential algorithms using Java.',
         instructor: 'Ashiqur Rahman',
         duration: '4 months',
-        level: 'Beginner',
+        level: 'Advanced',
     },
 ];
 
