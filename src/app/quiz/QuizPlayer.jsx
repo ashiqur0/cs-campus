@@ -21,8 +21,12 @@ const QuizPage = ({ quiz }) => {
 
     const handleSubmit = () => {
         setSubmitted(true);
-        fireConfetti(); // 🎉 BOOM!
+        fireConfetti();
     };
+
+    // ✅ check if current question is answered
+    const isAnswered =
+        currentQuestion && answers[currentQuestion._id];
 
     if (submitted) {
         return (
@@ -59,15 +63,17 @@ const QuizPage = ({ quiz }) => {
 
                 {count === questions.length - 1 ? (
                     <button
+                        disabled={!isAnswered}   // ✅ disabled if not answered
                         onClick={handleSubmit}
-                        className="btn btn-soft btn-success"
+                        className="btn btn-soft btn-success disabled:opacity-50"
                     >
                         Submit
                     </button>
                 ) : (
                     <button
+                        disabled={!isAnswered}   // ✅ disabled if not answered
                         onClick={() => setCount(count + 1)}
-                        className="btn btn-soft btn-primary"
+                        className="btn btn-soft btn-primary disabled:opacity-50"
                     >
                         Next
                     </button>
