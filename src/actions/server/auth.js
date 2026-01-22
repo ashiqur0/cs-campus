@@ -34,8 +34,10 @@ export const postUser = async (payload) => {
     }
 } 
 
+// login user | used in login page
 export const loginUser = async (payload) => {
     const { email, password } = payload;
+    
     if (!email || !password) return null;
     const user = await dbConnect(collections.USERS).findOne({ email });
     if (!user) return null;
