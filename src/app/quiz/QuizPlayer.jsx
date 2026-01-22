@@ -9,10 +9,9 @@ const QuizPage = ({ quiz }) => {
     const [answers, setAnswers] = useState({});
     const [count, setCount] = useState(0);
     const [submitted, setSubmitted] = useState(false);
-
     const currentQuestion = questions[count];
 
-    const handleChange = (questionId, option) => {
+    const handleChange = (questionId, option) => {        
         setAnswers(prev => ({
             ...prev,
             [questionId]: option,
@@ -22,17 +21,27 @@ const QuizPage = ({ quiz }) => {
     const handleSubmit = () => {
         setSubmitted(true);
         fireConfettiWithDuration();
+        console.log({ questions, answers });
     };
 
     // ✅ check if current question is answered
     const isAnswered = currentQuestion && answers[currentQuestion._id];
 
     if (submitted) {
+        const totalQuestions = questions.length;
+        const score = questions.reduce((acc, question) => {
+            const userAnswer = answers[question._id];
+            if (userAnswer === question.correctAnswer) {
+                return acc + 1;
+            }
+            return acc;
+        }, 0);
+        
         return (
             <div className="flex flex-col items-center justify-center h-[60vh]">
-                <h1 className="text-3xl font-bold mb-4">🎉 Quiz Completed!</h1>
-                <p className="text-lg text-gray-600">
-                    Great job for completing the quiz 🚀
+                <h1 className="text-3xl font-bold mb-4">🎉 Congratulations!</h1>
+                <p className="text-4xl font-bold">
+                    You got <span className="text-green-500 text-5xl">{score} / {totalQuestions}</span> 🚀
                 </p>
             </div>
         );
