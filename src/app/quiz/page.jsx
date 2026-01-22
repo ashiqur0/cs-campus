@@ -5,7 +5,7 @@ import QuizPage from './QuizPlayer';
 const Quiz = async () => {
 
     const quiz = await getQuizzes();
-    console.log(quiz);
+    // console.log(quiz);
 
     return (
         <div>
