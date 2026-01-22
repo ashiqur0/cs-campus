@@ -2,15 +2,16 @@
 
 import { useState } from 'react';
 import SingleQuiz from './SingleQuiz';
+import { fireConfetti } from '@/utils/confetti';
 
 const QuizPage = ({ quiz }) => {
     const [questions] = useState(quiz || []);
     const [answers, setAnswers] = useState({});
     const [count, setCount] = useState(0);
+    const [submitted, setSubmitted] = useState(false);
 
     const currentQuestion = questions[count];
 
-    // handle answer selection
     const handleChange = (questionId, option) => {
         setAnswers(prev => ({
             ...prev,
@@ -18,15 +19,21 @@ const QuizPage = ({ quiz }) => {
         }));
     };
 
-    // handle quiz submission
     const handleSubmit = () => {
-        const payload = {
-            responses: answers,
-            submittedAt: new Date(),
-        };
-
-        console.log('Submitting quiz:', payload);
+        setSubmitted(true);
+        fireConfetti(); // 🎉 BOOM!
     };
+
+    if (submitted) {
+        return (
+            <div className="flex flex-col items-center justify-center h-[60vh]">
+                <h1 className="text-3xl font-bold mb-4">🎉 Quiz Completed!</h1>
+                <p className="text-lg text-gray-600">
+                    Great job for completing the quiz 🚀
+                </p>
+            </div>
+        );
+    }
 
     return (
         <div className="max-w-3xl mx-auto p-6">
