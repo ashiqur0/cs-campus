@@ -1,5 +1,4 @@
-import Image from 'next/image';
-import React from 'react';
+import CourseCard from './CourseCard';
 
 const course = [
     {
@@ -13,7 +12,7 @@ const course = [
     },
     {
         id: 2,
-        title: 'Object Oriented Programming with Java',
+        title: 'Object Oriented Programming (OOP)',
         img: 'https://i.ibb.co.com/7dzwthjw/C-tutorial-Thumbnail.png',
         description: 'Master the concepts of OOP using Java.',
         instructor: 'Samiul Islam',
@@ -54,22 +53,7 @@ const Courses = () => {
         <div className="md:max-w-7xl mx-auto p-4">
             <h1 className="text-2xl font-bold mb-4">Total Courses: {course.length}</h1>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {course.map((course) => (
-                    <div key={course.id} className="border rounded-lg p-4 shadow-md">
-                        <Image
-                            src={course.img}
-                            className="w-full h-50 object-cover mb-4 rounded"
-                            alt={course.title}
-                            width={500}
-                            height={500}
-                        />
-                        <h2 className="text-xl font-semibold mb-2">{course.title}</h2>
-                        <p className="text-gray-600 mb-2">{course.description}</p>
-                        <p className="text-gray-800"><strong>Instructor:</strong> {course.instructor}</p>
-                        <p className="text-gray-800"><strong>Duration:</strong> {course.duration}</p>
-                        <p className="text-gray-800"><strong>Level:</strong> {course.level}</p>
-                    </div>
-                ))}
+                {course.map(course => <CourseCard key={course.id} course={course} />)}
             </div>
         </div>
     );
